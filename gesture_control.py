@@ -5,33 +5,43 @@ import cv2
 import numpy as np
 import hand_detector as hd
 import math
-import subprocess
-import sys
-package = ['absl-py==0.12.0',
-           'attrs==20.3.0',
-           'autopep8==1.5.6',
-           'comtypes==1.1.9',
-           'dataclasses==0.6',
-           'enum34==1.1.10',
-           'future==0.18.2',
-           'mediapipe==0.8.3.1',
-           'numpy==1.20.2',
-           'opencv-contrib-python==4.5.1.48',
-           'opencv-python==4.5.1.48',
-           'protobuf==3.15.8',
-           'psutil==5.8.0',
-           'pycaw==20181226',
-           'pycodestyle==2.7.0',
-           'six==1.15.0',
-           'toml==0.10.2]']
+############################################################
+# Install package autometically
+#############################################
+# import subprocess
+# import sys
+# package = ['absl-py==0.12.0',
+#            'attrs==20.3.0',
+#            'autopep8==1.5.6',
+#            'comtypes==1.1.9',
+#            'dataclasses==0.6',
+#            'enum34==1.1.10',
+#            'future==0.18.2',
+#            'mediapipe==0.8.3.1',
+#            'numpy==1.20.2',
+#            'opencv-contrib-python==4.5.1.48',
+#            'opencv-python==4.5.1.48',
+#            'protobuf==3.15.8',
+#            'psutil==5.8.0',
+#            'pycaw==20181226',
+#            'pycodestyle==2.7.0',
+#            'six==1.15.0',
+#            'toml==0.10.2']
 
 
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+# def install(package):
+#     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 
-for i in package:
-    install(i)
+# for i in package:
+#     install(i)
+########################################################################
+
+########################################################################
+
+####################################################################
+# Volumn control
+####################################################################
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
     IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
@@ -42,7 +52,7 @@ volrange = volume.GetVolumeRange()
 
 minvol = volrange[0]
 maxvol = volrange[1]
-
+#########################################################################
 
 camW, camH = 640, 480
 dec = hd.handDectator(dectation=0.8)
